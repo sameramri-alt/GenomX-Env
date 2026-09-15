@@ -44,7 +44,11 @@ SOURCES_ACTIVES = [
 def init_azure():
     """Initialise le client Azure et s'assure que le conteneur raw-data existe."""
     print(" Connexion a Azure Data Lake...")
-    blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
+    blob_service_client = BlobServiceClient.from_connection_string(
+        AZURE_CONNECTION_STRING,
+        connection_timeout=3600,
+        read_timeout=3600
+    )
     container_client = blob_service_client.get_container_client(CONTAINER_NAME_RAW)
     
     try:

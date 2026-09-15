@@ -8,5 +8,15 @@ node_modules/
 # IDE & System files
 .DS_Store
 Thumbs.db
-.vscode/
+
 .idea/
+
+# Data files (Do not push large datasets to GitHub)
+*.csv
+*.tsv
+*.parquet
+*.json
+
+# Python caches
+__pycache__/
+*.pyc
